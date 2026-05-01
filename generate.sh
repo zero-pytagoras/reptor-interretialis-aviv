@@ -8,9 +8,8 @@
 #
 #########################################
 DOMAIN=$1
+[ -z "$DOMAIN" ] && { echo "usage: $0 domain"; exit 1; }
 SUBS=(www api dev test beta)
-
-grep -qs "$DOMAIN" nginx.conf && { echo "Already exists."; exit 0; }
 
 {
 echo "events {}"
